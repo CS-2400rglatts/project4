@@ -167,5 +167,21 @@ public final class MaxHeap<T extends Comparable<? super T>>
 
       heap[rootIndex] = orphan;
    } // end reheap
+   
+   public void Optimal(T[] entries){
+      // optimal = true;
+      this(entries.length);
+      assert initialized = true;
+      
+      // copy given array to data field
+      for(int index = 0; index < entries.length; index++){
+         heap[index + 1] = entries[index];
+      }
+      
+      // Create heap
+      for(int rootIndex = lastIndex / 2; rootIndex > 0; rootIndex--){
+         reheap(rootIndex);
+      }
+   } // end Optimal
 
 } // end MaxHeap
