@@ -67,7 +67,7 @@ public final class MaxHeap<T extends Comparable<? super T>>
       checkIntegrity(); // Ensure initialization of data fields
       int newIndex = lastIndex + 1;
       int parentIndex = newIndex / 2;
-      while ((parentIndex > 0) && newEntry.compareTo(heap[parentIndex]) > 0) {
+      while ((parentIndex > 0) && newEntry.compareTo(heap[parentIndex]) > 0)) {
          heap[newIndex] = heap[parentIndex];
          newIndex = parentIndex;
          parentIndex = newIndex / 2;
@@ -183,5 +183,11 @@ public final class MaxHeap<T extends Comparable<? super T>>
          reheap(rootIndex);
       }
    } // end Optimal
+
+   public void sequentialInsertion(T[] entries){
+      for(int i = 0; i < entries.length; i++){
+         this.add(entries[i]);
+      }
+   } // end sequentialInsertions
 
 } // end MaxHeap
