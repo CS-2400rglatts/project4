@@ -168,7 +168,12 @@ public final class MaxHeap<T extends Comparable<? super T>>
       heap[rootIndex] = orphan;
    } // end reheap
    
-   public void Optimal(T[] entries){
+   /**
+    * Creates a heap using the optimal method
+    * @param entries
+    * @return numberOfSwaps
+    */
+   public int Optimal(T[] entries){
       // optimal = true;
       this(entries.length);
       assert initialized = true;
@@ -184,10 +189,18 @@ public final class MaxHeap<T extends Comparable<? super T>>
       }
    } // end Optimal
 
-   public void sequentialInsertion(T[] entries){
+   /**
+    * Creates a heap using sequential insertion
+    * @param entries
+    * @return numberOfSwaps
+    */
+   public int sequentialInsertion(T[] entries){
+      int numberOfSwaps = 0;
       for(int i = 0; i < entries.length; i++){
          this.add(entries[i]);
+         numberOfSwaps += 1;
       }
+      return numberOfSwaps;
    } // end sequentialInsertions
 
 } // end MaxHeap
