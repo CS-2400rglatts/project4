@@ -173,9 +173,9 @@ public final class MaxHeap<T extends Comparable<? super T>>
     * @param entries
     * @return numberOfSwaps
     */
-   public int Optimal(T[] entries){
-      // optimal = true;
-      this(entries.length);
+   public int Optimal(T[] entries){ 
+      checkCapacity(entries.length);  // Call other constructor
+     // lastIndex = entries.length;  
       assert initialized = true;
       
       // copy given array to data field
