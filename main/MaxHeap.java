@@ -187,6 +187,7 @@ public final class MaxHeap<T extends Comparable<? super T>>
       for(int rootIndex = lastIndex / 2; rootIndex > 0; rootIndex--){
          reheap(rootIndex);
       }
+       return numberOfSwaps;
    } // end Optimal
 
    /**
