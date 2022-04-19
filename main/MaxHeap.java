@@ -67,7 +67,7 @@ public final class MaxHeap<T extends Comparable<? super T>>
       checkIntegrity(); // Ensure initialization of data fields
       int newIndex = lastIndex + 1;
       int parentIndex = newIndex / 2;
-      while ((parentIndex > 0) && newEntry.compareTo(heap[parentIndex]) > 0)) {
+      while ((parentIndex > 0) && newEntry.compareTo(heap[parentIndex]) > 0) {
          heap[newIndex] = heap[parentIndex];
          newIndex = parentIndex;
          parentIndex = newIndex / 2;
@@ -173,11 +173,11 @@ public final class MaxHeap<T extends Comparable<? super T>>
     * @param entries
     * @return numberOfSwaps
     */
-   public int Optimal(T[] entries){ 
-      checkCapacity(entries.length);  // Call other constructor
-     // lastIndex = entries.length;  
-      assert initialized = true;
-      
+    public int Optimal(T[] entries){ 
+      checkCapacity(entries.length);
+    
+      assert integrityOK = true;
+      int numberOfSwaps = 0;
       // copy given array to data field
       for(int index = 0; index < entries.length; index++){
          heap[index + 1] = entries[index];
@@ -186,8 +186,10 @@ public final class MaxHeap<T extends Comparable<? super T>>
       // Create heap
       for(int rootIndex = lastIndex / 2; rootIndex > 0; rootIndex--){
          reheap(rootIndex);
+         numberOfSwaps += 1;
+         
       }
-       return numberOfSwaps;
+      return numberOfSwaps;
    } // end Optimal
 
    /**
