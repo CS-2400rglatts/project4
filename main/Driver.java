@@ -40,7 +40,8 @@ public class Driver {
         int sequentialCount = sequentialheap.sequentialInsertion(randomNumbers);
 
         BufferedWriter writer = new BufferedWriter(new FileWriter("output.txt"));
-        writer.write("Heap built using sequential insertions: ");
+        writer.write("data_random.txt ");
+        writer.write("\nHeap built using sequential insertions: ");
         for (int i = 0; i < 10; i++) {
             writer.write(sequentialheap.getMax() + ",");
             sequentialheap.removeMax();
@@ -76,7 +77,8 @@ public class Driver {
         int sequentialCountSorted = sequentialheapSorted.sequentialInsertion(sortedNumbers);
 
         BufferedWriter write = new BufferedWriter(new FileWriter("output.txt"));
-        write.write("Heap built using sequential insertions: ");
+        write.write("data_sorted.txt ");
+        write.write("\nHeap built using sequential insertions: ");
         for (int i = 0; i < 10; i++) {
             write.write(sequentialheapSorted.getMax() + ",");
             sequentialheapSorted.removeMax();
