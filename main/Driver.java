@@ -54,14 +54,14 @@ public class Driver {
         }
         //writes to file and creates optimal heap
         MaxHeap<Integer> optimalheap = new MaxHeap<>(100);
-        optimalheap.Optimal(randomNumbers);
+        int optimalheapCount = optimalheap.Optimal(randomNumbers);
         writer.write("...\nHeap built using optimal method: ");
         for (int i = 0; i < 10; i++) {
             writer.write(optimalheap.getMax() + ",");
             optimalheap.removeMax();
         }
 
-        writer.write("...\nNumber of swaps in the heap creation: " + optimalheap.counter +  
+        writer.write("...\nNumber of swaps in the heap creation: " + optimalheapCount +  
         "\nHeap after 10 removals: ");
         for (int i = 0; i < 10; i++) {
             writer.write(optimalheap.getMax() + ",");
@@ -90,14 +90,14 @@ public class Driver {
         }
         //writes to file and creates optimal heap
         MaxHeap<Integer> optimalheapSorted = new MaxHeap<>(100);
-        optimalheapSorted.Optimal(sortedNumbers);
+        int optimalheapSortedCount = optimalheapSorted.Optimal(sortedNumbers);
         write.write("...\nHeap built using optimal method: ");
         for (int i = 0; i < 10; i++) {
             write.write(optimalheapSorted.getMax() + ",");
             optimalheapSorted.removeMax();
         }
 
-        write.write("...\nNumber of swaps in the heap creation: " + optimalheapSorted.counter +  
+        write.write("...\nNumber of swaps in the heap creation: " + optimalheapSortedCount +  
         "\nHeap after 10 removals: ");
         for (int i = 0; i < 10; i++) {
             write.write(optimalheapSorted.getMax() + ",");
