@@ -12,12 +12,11 @@ public class Driver {
 
     }
 
-    public void main() throws IOException {
-        
+    public static void main(String[] args) throws IOException {
         //scans data_random.txt
         int a = 0;
         Integer[] randomNumbers = new Integer[100];
-        File input = new File("Downloads/data_random.txt");
+        File input = new File("C:\\Users\\Rebecca\\.vscode\\testing\\.vscode\\project_2\\.vscode\\project4\\src\\main\\java\\project4\\data_random.txt");
         Scanner scanner = new Scanner(input);
         while(scanner.hasNextInt()) {
             randomNumbers[a] = scanner.nextInt();
@@ -28,7 +27,7 @@ public class Driver {
         //scans data_sorted.txt
         int b = 0;
         Integer[] sortedNumbers = new Integer[100];
-        File inputSorted = new File("Downloads/data_sorted.txt");
+        File inputSorted = new File("C:\\Users\\Rebecca\\.vscode\\testing\\.vscode\\project_2\\.vscode\\project4\\src\\main\\java\\project4\\data_sorted.txt");
         Scanner scan = new Scanner(inputSorted);
         while(scan.hasNextInt()) {
             sortedNumbers[b] = scan.nextInt();
