@@ -14,6 +14,9 @@ public final class MaxHeap<T extends Comparable<? super T>>
    private T[] heap; // Array of heap entries; ignore heap[0]
    private int lastIndex; // Index of last entry and number of entries
    private boolean integrityOK = false;
+   
+   int numberOfSwaps = 0;
+
    private static final int DEFAULT_CAPACITY = 25;
    private static final int MAX_CAPACITY = 10000;
   
@@ -72,6 +75,8 @@ public final class MaxHeap<T extends Comparable<? super T>>
          heap[newIndex] = heap[parentIndex];
          newIndex = parentIndex;
          parentIndex = newIndex / 2;
+         
+         numberOfSwaps += 1;
        
       } // end while
 
@@ -153,6 +158,7 @@ public final class MaxHeap<T extends Comparable<? super T>>
       while (!done && (leftChildIndex <= lastIndex)) {
          int largerChildIndex = leftChildIndex; // Assume larger
          int rightChildIndex = leftChildIndex + 1;
+         numberOfSwaps ++;
 
          if ((rightChildIndex <= lastIndex) &&
                heap[rightChildIndex].compareTo(heap[largerChildIndex]) > 0) {
@@ -181,7 +187,6 @@ public final class MaxHeap<T extends Comparable<? super T>>
       lastIndex = entries.length;
       // lastIndex = 0;
       //assert integrityOK = true;
-      int numberOfSwaps = 0;
       
       // copy given array to data field
       for(int index = 0; index < entries.length; index++){
@@ -192,7 +197,6 @@ public final class MaxHeap<T extends Comparable<? super T>>
       // Create heap
       for(int rootIndex = lastIndex / 2; rootIndex > 0; rootIndex--){
          reheap(rootIndex);
-         numberOfSwaps += 1;
          
       }
       return numberOfSwaps;
@@ -204,12 +208,21 @@ public final class MaxHeap<T extends Comparable<? super T>>
     * @return numberOfSwaps
     */
    public int sequentialInsertion(T[] entries){
-      int numberOfSwaps = 0;
       for(int i = 0; i < entries.length; i++){
          this.add(entries[i]);
-         numberOfSwaps += 1;
       }
       return numberOfSwaps;
    } // end sequentialInsertions
+
+   public String toString()
+   {
+      String output = "";
+      for(int i = 1; i < heap.length; i++)
+      {
+         output += heap[i];
+         output += " ";
+      }
+      return output;
+   }
 
 } // end MaxHeap
