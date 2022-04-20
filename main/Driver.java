@@ -40,12 +40,12 @@ public class Driver {
         int sequentialCount = sequentialheap.sequentialInsertion(randomNumbers);
 
         BufferedWriter writer = new BufferedWriter(new FileWriter("output.txt"));
-        writer.write("data_random.txt ");
-        writer.write("\nHeap built using sequential insertions: ");
+        writer.write("=====================================================================\n\ndata_random.txt ");
+        writer.write("\n\nHeap built using sequential insertions: ");
         writer.write(sequentialheap.toString(10));
 
-        writer.write("...\nNumber of swaps in the heap creation: " + sequentialCount +
-                "\nHeap after 10 removals: ");
+        writer.write("...\n\nNumber of swaps in the heap creation: " + sequentialCount +
+                "\n\nHeap after 10 removals: ");
         for (int i = 0; i < 10; i++) {
             sequentialheap.removeMax();
         }
@@ -54,16 +54,16 @@ public class Driver {
         //writes to file and creates optimal heap
         MaxHeap<Integer> optimalheap = new MaxHeap<>(100);
         int optimalCount = optimalheap.Optimal(randomNumbers);
-        writer.write("...\n\nHeap built using optimal method: ");
+        writer.write("...\n\n\n\nHeap built using optimal method: ");
         writer.write(optimalheap.toString(10));
 
-        writer.write("...\nNumber of swaps in the heap creation: "  + optimalCount +
-                "\nHeap after 10 removals: ");
+        writer.write("...\n\nNumber of swaps in the heap creation: "  + optimalCount +
+                "\n\nHeap after 10 removals: ");
         for (int i = 0; i < 10; i++) {
             optimalheap.removeMax();
         }
         writer.write(optimalheap.toString(10));
-        writer.write("...\n");
+        writer.write("...\n\n=====================================================================\n\n");
 
 
 
@@ -71,12 +71,12 @@ public class Driver {
         MaxHeap<Integer> sequentialheapSorted = new MaxHeap<>();
         int sequentialCountSorted = sequentialheapSorted.sequentialInsertion(sortedNumbers);
 
-        writer.write("\ndata_sorted.txt ");
-        writer.write("\nHeap built using sequential insertions: ");
+        writer.write("\n=====================================================================\n\ndata_sorted.txt ");
+        writer.write("\n\nHeap built using sequential insertions: ");
         writer.write(sequentialheapSorted.toString(10));
 
-        writer.write("...\nNumber of swaps in the heap creation: " + sequentialCountSorted +
-                "\nHeap after 10 removals: ");
+        writer.write("...\n\nNumber of swaps in the heap creation: " + sequentialCountSorted +
+                "\n\nHeap after 10 removals: ");
         for (int i = 0; i < 10; i++) {
             sequentialheapSorted.removeMax();
         }
@@ -85,12 +85,12 @@ public class Driver {
         //writes to file and creates optimal heap
         MaxHeap<Integer> optimalheapSorted = new MaxHeap<>(100);
         int optimalheapSortedCount = optimalheapSorted.Optimal(sortedNumbers);
-        writer.write("...\n\nHeap built using optimal method: ");
+        writer.write("...\n\n\n\nHeap built using optimal method: ");
 
         writer.write(optimalheapSorted.toString(10));
 
-        writer.write("...\nNumber of swaps in the heap creation: " + optimalheapSortedCount +
-                "\nHeap after 10 removals: ");
+        writer.write("...\n\nNumber of swaps in the heap creation: " + optimalheapSortedCount +
+                "\n\nHeap after 10 removals: ");
         optimalheapSorted.Optimal(sortedNumbers);
         for (int i = 0; i < 10; i++) {
 
@@ -98,9 +98,8 @@ public class Driver {
         }
 
         writer.write(optimalheapSorted.toString(10));
-        writer.write("...\n");
+        writer.write("...\n\n=====================================================================");
 
         writer.close();
 
     }
-}
