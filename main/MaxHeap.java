@@ -214,15 +214,17 @@ public final class MaxHeap<T extends Comparable<? super T>>
       return numberOfSwaps;
    } // end sequentialInsertions
 
-   public String toString()
-   {
-      String output = "";
-      for(int i = 1; i < heap.length; i++)
-      {
-         output += heap[i];
-         output += " ";
-      }
-      return output;
-   }
+   public String toString(int num)
+    {
+        String output = "";
+        for(int i = 1; i < num + 1; i++)
+        {
+            if(heap[i] == null)
+                continue;
+            output += heap[i];
+            output += ", ";
+        }
+        return output;
+    } // end toString
 
 } // end MaxHeap
