@@ -39,7 +39,7 @@ public class Driver {
         MaxHeap<Integer> sequentialheap = new MaxHeap<>();
         int sequentialCount = sequentialheap.sequentialInsertion(randomNumbers);
 
-        BufferedWriter writer = new BufferedWriter(new FileWriter("output.txt"));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\Rebecca\\.vscode\\testing\\.vscode\\project_2\\.vscode\\project4\\src\\main\\java\\project4\\output.txt"));
         writer.write("data_random.txt ");
         writer.write("\nHeap built using sequential insertions: ");
         for (int i = 0; i < 10; i++) {
@@ -49,65 +49,79 @@ public class Driver {
 
         writer.write("...\nNumber of swaps in the heap creation: " + sequentialCount +  
         "\nHeap after 10 removals: ");
+        sequentialheap.sequentialInsertion(randomNumbers);
         for (int i = 0; i < 10; i++) {
+            sequentialheap.removeMax();
+        }
+        for (int i = 0; i < 10; i++){
             writer.write(sequentialheap.getMax() + ",");
             sequentialheap.removeMax();
         }
+
+
+
         //writes to file and creates optimal heap
         MaxHeap<Integer> optimalheap = new MaxHeap<>(100);
-        int optimalheapCount = optimalheap.Optimal(randomNumbers);
-        writer.write("...\nHeap built using optimal method: ");
+        int optimalCount = optimalheap.Optimal(randomNumbers);
+        writer.write("...\n\nHeap built using optimal method: ");
         for (int i = 0; i < 10; i++) {
             writer.write(optimalheap.getMax() + ",");
             optimalheap.removeMax();
         }
 
-        writer.write("...\nNumber of swaps in the heap creation: " + optimalheapCount +  
+        writer.write("...\nNumber of swaps in the heap creation: "  + optimalCount +
         "\nHeap after 10 removals: ");
+        for (int i = 0; i < 10; i++) {
+            optimalheap.removeMax();
+        }
         for (int i = 0; i < 10; i++) {
             writer.write(optimalheap.getMax() + ",");
             optimalheap.removeMax();
         }
         writer.write("...\n");
 
-        writer.close();
+       
 
         //writes data_sorted.txt array of numbers to file
         MaxHeap<Integer> sequentialheapSorted = new MaxHeap<>();
         int sequentialCountSorted = sequentialheapSorted.sequentialInsertion(sortedNumbers);
-
-        BufferedWriter write = new BufferedWriter(new FileWriter("output.txt"));
-        write.write("data_sorted.txt ");
-        write.write("\nHeap built using sequential insertions: ");
+        
+        writer.write("\ndata_sorted.txt ");
+        writer.write("\nHeap built using sequential insertions: ");
         for (int i = 0; i < 10; i++) {
-            write.write(sequentialheapSorted.getMax() + ",");
+            writer.write(sequentialheapSorted.getMax() + ",");
             sequentialheapSorted.removeMax();
         }
 
-        write.write("...\nNumber of swaps in the heap creation: " + sequentialCountSorted +  
+        writer.write("...\nNumber of swaps in the heap creation: " + sequentialCountSorted +  
         "\nHeap after 10 removals: ");
         for (int i = 0; i < 10; i++) {
-            write.write(sequentialheapSorted.getMax() + ",");
+            writer.write(sequentialheapSorted.getMax() + ",");
             sequentialheapSorted.removeMax();
         }
         //writes to file and creates optimal heap
         MaxHeap<Integer> optimalheapSorted = new MaxHeap<>(100);
         int optimalheapSortedCount = optimalheapSorted.Optimal(sortedNumbers);
-        write.write("...\nHeap built using optimal method: ");
+        writer.write("...\n\nHeap built using optimal method: ");
         for (int i = 0; i < 10; i++) {
-            write.write(optimalheapSorted.getMax() + ",");
+            writer.write(optimalheapSorted.getMax() + ",");
             optimalheapSorted.removeMax();
         }
 
-        write.write("...\nNumber of swaps in the heap creation: " + optimalheapSortedCount +  
+        writer.write("...\nNumber of swaps in the heap creation: " + optimalheapSortedCount +  
         "\nHeap after 10 removals: ");
+        optimalheapSorted.Optimal(sortedNumbers);
         for (int i = 0; i < 10; i++) {
-            write.write(optimalheapSorted.getMax() + ",");
+            
             optimalheapSorted.removeMax();
         }
-        write.write("...\n");
+        for (int i = 0; i < 10; i++) {
+            writer.write(optimalheapSorted.getMax() + ",");
+            optimalheapSorted.removeMax();
+        }
+        writer.write("...\n");
 
-        write.close();
+        writer.close();
         
     }
 }
